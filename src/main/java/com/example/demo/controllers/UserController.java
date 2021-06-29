@@ -69,7 +69,7 @@ public class UserController {
         int passwordLength = password.length();
         String confirmPassword = createUserRequest.getConfirmPassword();
         if (passwordLength < 7 || !password.equals(confirmPassword)) {
-            log.error("POST /api/user/create | Password not valid", username, passwordLength);
+            log.error("POST /api/user/create | Password not valid");
             return ResponseEntity.badRequest().build();
         }
         newUser.setPassword(bCryptPasswordEncoder.encode(password));
